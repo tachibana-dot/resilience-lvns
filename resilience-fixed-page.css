@@ -151,8 +151,8 @@ h1, h2, h3 { letter-spacing: -0.035em; }
 .process-row > span { color: var(--red); font-size: 13px; font-weight: 800; }
 .process-row strong { font-size: 25px; font-style: italic; }
 .process-row p { margin: 0; color: var(--muted); font-size: 14px; }
-.final-row { color: var(--white); background: var(--dark); }
-.final-row p { color: rgba(255, 255, 255, 0.7); }
+.final-row { color: var(--ink); background: var(--white); }
+.final-row p { color: var(--muted); }
 .program-spec { display: grid; grid-template-columns: 1fr 1fr; margin-top: 28px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .program-spec > div { padding: 22px 0; }
 .program-spec > div + div { padding-left: 30px; border-left: 1px solid var(--line); }
