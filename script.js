@@ -24,6 +24,7 @@ const gallery = document.querySelector(".lventures-gallery");
 
 if (gallery) {
   const preview = gallery.querySelector(".lventures-gallery-preview");
+  preview.style.setProperty("--gallery-bg", `url("${preview.querySelector("img").src}")`);
   const mainImage = gallery.querySelector(".lventures-gallery-main-image");
   const caption = gallery.querySelector(".lventures-gallery-caption");
   const thumbs = Array.from(gallery.querySelectorAll(".lventures-thumb"));
@@ -32,6 +33,7 @@ if (gallery) {
     thumb.addEventListener("click", (event) => {
       event.preventDefault();
       preview.href = thumb.href;
+      preview.style.setProperty("--gallery-bg", `url("${thumb.dataset.galleryImage}")`);
       mainImage.src = thumb.dataset.galleryImage;
       mainImage.alt = thumb.dataset.galleryName;
       caption.innerHTML = `<strong>${thumb.dataset.galleryName}</strong><small>${thumb.dataset.galleryDescription}</small><em>WEB SITE ↗</em>`;
