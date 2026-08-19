@@ -247,9 +247,9 @@ body.js-ready [data-reveal].is-visible { opacity: 1; transform: none; }
 
 
 
-.lventures-feature { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 26px 36px; }
+.lventures-feature { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 10px 36px; }
 .lventures-feature > div { max-width: 760px; }
-.lventures-gallery { grid-column: 1 / -1; margin-top: 4px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.22); }
+.lventures-gallery { grid-column: 1 / -1; margin-top: 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.22); }
 .lventures-gallery-preview { position: relative; display: block; min-height: 320px; overflow: hidden; isolation: isolate; background: #303536; color: var(--white); text-decoration: none; }
 .lventures-gallery-preview::before { content: ""; position: absolute; z-index: -1; inset: -28px; background-image: var(--gallery-bg); background-position: center; background-size: cover; filter: blur(18px); opacity: .78; transform: scale(1.08); }
 .lventures-gallery-preview::after { content: ""; position: absolute; z-index: 0; inset: 0; background: rgba(25, 28, 29, .22); }
