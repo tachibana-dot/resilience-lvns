@@ -23,44 +23,20 @@ if ("IntersectionObserver" in window) {
 const gallery = document.querySelector(".lventures-gallery");
 
 if (gallery) {
-  const track = gallery.querySelector(".lventures-gallery-track");
-  const slides = Array.from(gallery.querySelectorAll(".lventures-slide"));
-  const dots = gallery.querySelector(".lventures-gallery-dots");
-  const prev = gallery.querySelector(".gallery-prev");
-  const next = gallery.querySelector(".gallery-next");
-  let page = 0;
-  let timer;
+  const preview = gallery.querySelector(".lventures-gallery-preview");
+  const mainImage = gallery.querySelector(".lventures-gallery-main-image");
+  const caption = gallery.querySelector(".lventures-gallery-caption");
+  const thumbs = Array.from(gallery.querySelectorAll(".lventures-thumb"));
 
-  const visibleCount = () => window.innerWidth <= 580 ? 1 : window.innerWidth <= 850 ? 2 : 3;
-  const pageCount = () => Math.max(1, Math.ceil(slides.length / visibleCount()));
-
-  slides.forEach((_, index) => {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.setAttribute("aria-label", `${index + 1}枚目の画像を見る`);
-    dot.addEventListener("click", () => { page = Math.min(index, pageCount() - 1); updateGallery(); restartGallery(); });
-    dots.appendChild(dot);
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener("click", (event) => {
+      event.preventDefault();
+      preview.href = thumb.href;
+      mainImage.src = thumb.dataset.galleryImage;
+      mainImage.alt = thumb.dataset.galleryName;
+      caption.innerHTML = `<strong>${thumb.dataset.galleryName}</strong><small>${thumb.dataset.galleryDescription}</small><em>WEB SITE ↗</em>`;
+      thumbs.forEach((item) => item.classList.remove("is-active"));
+      thumb.classList.add("is-active");
+    });
   });
-
-  const updateGallery = () => {
-    const count = visibleCount();
-    const maxStart = Math.max(0, slides.length - count);
-    const start = Math.min(page * count, maxStart);
-    const offset = start * (100 / count);
-    track.style.transform = `translateX(-${offset}%)`;
-    Array.from(dots.children).forEach((dot, index) => dot.setAttribute("aria-current", index === page ? "true" : "false"));
-  };
-
-  const restartGallery = () => {
-    window.clearInterval(timer);
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      timer = window.setInterval(() => { page = (page + 1) % pageCount(); updateGallery(); }, 4500);
-    }
-  };
-
-  prev.addEventListener("click", () => { page = (page - 1 + pageCount()) % pageCount(); updateGallery(); restartGallery(); });
-  next.addEventListener("click", () => { page = (page + 1) % pageCount(); updateGallery(); restartGallery(); });
-  window.addEventListener("resize", () => { page = Math.min(page, pageCount() - 1); updateGallery(); });
-  updateGallery();
-  restartGallery();
 }
