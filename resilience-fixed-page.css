@@ -283,3 +283,13 @@ body.js-ready [data-reveal].is-visible { opacity: 1; transform: none; }
 .platform-logo-add { display: block; width: auto; height: 54px; max-width: 230px; margin: 24px 0 4px; object-fit: contain; object-position: left center; }
 .platform-card-add h3 { margin-top: 22px; }
 @media (max-width: 580px) { .lventures-button { max-width: none; text-align: center; } .platform-logo-add { height: 48px; } }
+
+.field-example-section{padding-top:clamp(4rem,9vw,8rem)}
+.field-example-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end;margin-top:2.5rem;padding:clamp(1.5rem,4vw,3.5rem);background:#fff;border:1px solid rgba(16,47,58,.16);box-shadow:10px 10px 0 rgba(16,47,58,.08)}
+.field-example-kicker{display:block;color:#d94a3f;font-size:.72rem;letter-spacing:.18em;font-weight:700;margin-bottom:1rem}
+.field-example-card h3{font-size:clamp(1.5rem,3vw,2.8rem);margin:0 0 1.2rem}
+.field-example-card p{max-width:760px;line-height:1.9;margin:.5rem 0}
+.first-step-section{padding-top:clamp(4rem,8vw,7rem);padding-bottom:clamp(5rem,10vw,9rem)}
+.first-step-section .section-intro{max-width:780px}
+.first-step-section .red-button{margin-top:1.5rem}
+@media(max-width:700px){.field-example-card{grid-template-columns:1fr}.field-example-card .red-button{width:max-content;max-width:100%}}
