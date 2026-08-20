@@ -63,7 +63,7 @@ h1, h2, h3 { letter-spacing: -0.035em; }
 .lventures-kicker { color: #ffd7d2; font-size: 10px; font-weight: 800; letter-spacing: .18em; }
 .lventures-feature h3 { margin: 8px 0 8px; color: var(--white); font-size: clamp(34px, 5vw, 62px); font-style: italic; letter-spacing: -.04em; line-height: 1; }
 .lventures-feature p { max-width: 660px; margin: 0; color: rgba(255,255,255,.78); font-size: 14px; }
-.lventures-button { flex: 0 0 auto; white-space: nowrap; }
+ .lventures-button { flex: 0 0 auto; max-width: 340px; white-space: normal; line-height: 1.45; text-align: left; }
 .package-groups { display: grid; gap: 34px; }
 .package-layer { padding-top: 24px; border-top: 1px solid var(--ink); }
 .package-layer-heading { display: grid; grid-template-columns: minmax(190px, .7fr) 1.3fr; align-items: baseline; gap: 24px; margin-bottom: 14px; }
@@ -167,7 +167,7 @@ h1, h2, h3 { letter-spacing: -0.035em; }
 
 .platform-section-add { background: var(--paper); }
 .platform-grid-add { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.platform-card-add { min-height: 255px; padding: 28px; background: var(--white); }
+ .platform-card-add { min-height: 255px; padding: 28px; background: var(--white); color: var(--ink); }
 .platform-card-add.highlighted-platform-add { background: var(--red); color: var(--white); }
 .platform-card-add > span { color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: 0.14em; }
 .highlighted-platform-add > span { color: #ffd7d2; }
@@ -279,3 +279,7 @@ body.js-ready [data-reveal].is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .lventures-gallery-main-image { transition: none; }
 }
+
+.platform-logo-add { display: block; width: auto; height: 54px; max-width: 230px; margin: 24px 0 4px; object-fit: contain; object-position: left center; }
+.platform-card-add h3 { margin-top: 22px; }
+@media (max-width: 580px) { .lventures-button { max-width: none; text-align: center; } .platform-logo-add { height: 48px; } }
