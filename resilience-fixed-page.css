@@ -290,6 +290,6 @@ body.js-ready [data-reveal].is-visible { opacity: 1; transform: none; }
 .field-example-card h3{font-size:clamp(1.5rem,3vw,2.8rem);margin:0 0 1.2rem}
 .field-example-card p{max-width:760px;line-height:1.9;margin:.5rem 0}
 .first-step-section{padding-top:clamp(4rem,8vw,7rem);padding-bottom:clamp(5rem,10vw,9rem)}
-.first-step-section .section-intro{max-width:780px}
+.first-step-section .section-intro{max-width:none} .first-step-copy{max-width:760px}
 .first-step-section .red-button{margin-top:1.5rem}
 @media(max-width:700px){.field-example-card{grid-template-columns:1fr}.field-example-card .red-button{width:max-content;max-width:100%}}
