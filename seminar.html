@@ -95,7 +95,20 @@ const processes=[
 const topicsEl=document.getElementById('topic-selector'), processesEl=document.getElementById('process-selector'), matrixEl=document.getElementById('matrix'), resultLinksEl=document.getElementById('result-links');
 let selectedTopic=0, selectedProcess=0;
 const referenceLinks={
- 'T1-PR5':[{label:'新規事業を生み出す「ひと」を育てる｜リバネス講演・セミナー',url:'https://lne.st/2025/07/24/0909_luniv_oc/'},{label:'人材開発事業部｜リバネス',url:'https://lne.st/about/division/hd/'}]
+ 'T1-PR1':[{label:'戦略開発事業部｜リバネス',url:'https://lne.st/about/division/sd/'},{label:'戦略領域の調査・新規事業開発支援',url:'https://lne.st/2023/09/25/sd-service/'}],
+ 'T1-PR3':[{label:'新規事業｜L Media by リバネス',url:'https://media.lne.st/categories/new-business-development'},{label:'創業開発｜リバネス',url:'https://lne.st/project/fd/'}],
+ 'T1-PR4':[{label:'戦略領域の調査・新規事業開発支援',url:'https://lne.st/2023/09/25/sd-service/'},{label:'創業開発｜リバネス',url:'https://lne.st/project/fd/'}],
+ 'T1-PR5':[{label:'新規事業を生み出す「ひと」を育てる｜リバネス講演・セミナー',url:'https://lne.st/2025/07/24/0909_luniv_oc/'},{label:'人材開発事業部｜リバネス',url:'https://lne.st/about/division/hd/'}],
+ 'T2-PR3':[{label:'TECH PLANTER｜リバネス',url:'https://techplanter.lne.st/'},{label:'創業開発｜リバネス',url:'https://lne.st/project/fd/'}],
+ 'T2-PR4':[{label:'創業開発｜リバネス',url:'https://lne.st/project/fd/'},{label:'地域開発事業部｜リバネス',url:'https://lne.st/about/division/ld/'}],
+ 'T2-PR5':[{label:'人材開発事業部｜リバネス',url:'https://lne.st/about/division/hd/'}],
+ 'T3-PR1':[{label:'研究開発事業部｜リバネス',url:'https://lne.st/about/division/rd/'}],
+ 'T3-PR3':[{label:'研究開発事業部｜リバネス',url:'https://lne.st/about/division/rd/'},{label:'超異分野学会',url:'https://hic.lne.st/japan/'}],
+ 'T3-PR4':[{label:'研究開発｜リバネス',url:'https://lne.st/project/rd/'},{label:'研究開発事業部｜リバネス',url:'https://lne.st/about/division/rd/'}],
+ 'T4-PR4':[{label:'戦略開発事業部｜リバネス',url:'https://lne.st/about/division/sd/'},{label:'全国知識製造業会議2026｜組織づくりの実践',url:'https://km.lne.st/2026/03/11/opening/'}],
+ 'T4-PR5':[{label:'人材開発事業部｜リバネス',url:'https://lne.st/about/division/hd/'},{label:'社員が採用に関わり生まれる組織の変革とは',url:'https://lne.st/2019/08/19/hd/'}],
+ 'T8-PR3':[{label:'Global Bridge Conference 2025',url:'https://lne.st/2025/09/10/gbc2025/'},{label:'研究開発事業部｜国際共同研究',url:'https://lne.st/about/division/rd/'}],
+ 'T8-PR4':[{label:'海外展開の次の一手｜Global Bridge Conference 2025',url:'https://lne.st/2025/10/07/gbc-2/'},{label:'地域開発事業部｜リバネス',url:'https://lne.st/about/division/ld/'}]
 };
 
 const makeCard=(item,type,i)=>{const b=document.createElement('button');b.className='selector-card';b.dataset.index=i;b.innerHTML='<strong>'+item[1]+'</strong>';b.addEventListener('click',()=>{if(type==='topic')selectedTopic=i;else selectedProcess=i;render()});return b};
