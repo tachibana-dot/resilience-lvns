@@ -293,3 +293,6 @@ body.js-ready [data-reveal].is-visible { opacity: 1; transform: none; }
 .first-step-section .section-intro{max-width:none} .first-step-copy{max-width:760px}
 .first-step-section .red-button{margin-top:1.5rem}
 @media(max-width:700px){.field-example-card{grid-template-columns:1fr}.field-example-card .red-button{width:max-content;max-width:100%}}
+
+.first-step-section .section-intro{grid-template-columns:1fr 1fr}
+.first-step-section .first-step-copy{max-width:none;width:100%}
