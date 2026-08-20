@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>講演メニュー | LVNS RESILIENCE PROJECT</title>
+<meta name="description" content="御社の課題に合わせて、リバネスの講演テーマを組み立てます。" />
+<link rel="stylesheet" href="./resilience-fixed-page.css" />
+<style>
+:root{--seminar-ink:#102f3a;--seminar-red:#d94a3f;--seminar-paper:#f4f1ea;--seminar-mint:#e5efec}
+body{background:var(--seminar-paper);color:var(--seminar-ink)}
+.seminar-page{max-width:1320px;margin:0 auto;padding:0 6vw 8rem}
+.seminar-header{padding:2rem 0 6rem;display:flex;justify-content:space-between;align-items:center;gap:2rem}
+.seminar-brand{font-size:.72rem;letter-spacing:.18em;text-decoration:none;color:inherit}
+.seminar-back{font-size:.78rem;color:inherit;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:.25rem}
+.seminar-hero{max-width:850px;padding-bottom:5rem}
+.seminar-label{font-size:.72rem;letter-spacing:.22em;color:var(--seminar-red);font-weight:700;margin-bottom:1.4rem}
+.seminar-hero h1{font-size:clamp(2.4rem,6vw,5.8rem);line-height:1.05;letter-spacing:-.06em;margin:0 0 1.8rem}
+.seminar-hero h1 em{font-style:normal;color:var(--seminar-red)}
+.seminar-hero p{font-size:1.05rem;line-height:2;margin:0;max-width:680px}
+.seminar-selector{background:#fff;border:1px solid rgba(16,47,58,.18);padding:clamp(1.2rem,3vw,3rem);box-shadow:12px 12px 0 rgba(16,47,58,.08)}
+.selector-heading{display:flex;justify-content:space-between;gap:1rem;align-items:end;margin-bottom:2rem}
+.selector-heading h2{font-size:clamp(1.35rem,2vw,2rem);margin:0}
+.selector-heading p{margin:0;font-size:.8rem;color:#52707a}
+.selector-block{margin:0 0 2.2rem}
+.selector-block h3{font-size:.85rem;letter-spacing:.12em;margin:0 0 .9rem;color:var(--seminar-red)}
+.selector-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.65rem}
+.selector-card{appearance:none;border:1px solid #b9cbc7;background:var(--seminar-mint);color:var(--seminar-ink);text-align:left;padding:1rem .85rem;min-height:7.2rem;cursor:pointer;font:inherit;transition:.2s}
+.selector-card:hover,.selector-card.is-selected{background:var(--seminar-ink);color:#fff;transform:translateY(-3px)}
+.selector-card span{display:block;font-size:.68rem;letter-spacing:.12em;color:var(--seminar-red);margin-bottom:.6rem;font-weight:700}
+.selector-card:hover span,.selector-card.is-selected span{color:#f5c7bd}
+.selector-card strong{font-size:.95rem;line-height:1.45}
+.selection-result{border-top:1px solid #b9cbc7;padding-top:1.6rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:end}
+.selection-result small{font-size:.7rem;letter-spacing:.13em;color:var(--seminar-red);font-weight:700}
+.selection-result h3{font-size:clamp(1.4rem,2.5vw,2.3rem);margin:.45rem 0 .6rem}
+.selection-result p{line-height:1.8;margin:0;max-width:700px}
+.result-cta{display:inline-block;color:var(--seminar-ink);font-size:.85rem;font-weight:700;border-bottom:2px solid var(--seminar-red);padding-bottom:.4rem;text-decoration:none;white-space:nowrap}
+.matrix-section{padding-top:7rem}
+.matrix-section h2{font-size:clamp(1.8rem,3vw,3rem);margin:0 0 1rem}
+.matrix-section>p{line-height:1.8;max-width:700px;margin-bottom:2rem}
+.matrix{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#b9cbc7;border:1px solid #b9cbc7}
+.matrix-cell{background:#fff;padding:1rem;min-height:9rem}
+.matrix-cell small{color:var(--seminar-red);font-size:.65rem;font-weight:700;letter-spacing:.08em}
+.matrix-cell h3{font-size:.9rem;line-height:1.4;margin:.55rem 0}
+.matrix-cell p{font-size:.75rem;line-height:1.6;margin:0;color:#52707a}
+.seminar-footer{margin-top:6rem;padding-top:2rem;border-top:1px solid #b9cbc7;display:flex;justify-content:space-between;gap:1rem}
+.seminar-footer a{color:inherit}
+@media(max-width:760px){
+ .seminar-page{padding:0 1.2rem 5rem}.seminar-header{padding:1.4rem 0 4rem}.seminar-hero{padding-bottom:3rem}
+ .selector-grid{grid-template-columns:repeat(2,1fr)}.selector-card{min-height:6.3rem}.selection-result{grid-template-columns:1fr}
+ .matrix{display:block;background:transparent;border:0}.matrix-cell{margin-bottom:.7rem;min-height:0;border:1px solid #b9cbc7}
+ .seminar-footer{display:block}.seminar-footer a{display:block;margin-top:1rem}
+}
+</style>
+</head>
+<body>
+<main class="seminar-page">
+<header class="seminar-header"><a class="seminar-brand" href="./index.html">LVNS RESILIENCE PROJECT</a><a class="seminar-back" href="./index.html#contact">トップページへ戻る ↗</a></header>
+<section class="seminar-hero">
+<div class="seminar-label">LECTURE MENU / 5 × 5</div>
+<h1>御社の課題に合わせて、<br /><em>講演テーマを組み立てます。</em></h1>
+<p>新規事業、技術の活用、組織づくり、地域との連携。5つのテーマと5つの進め方を掛け合わせ、いま考えたいテーマに合わせて講演や対話の場を設計します。</p>
+</section>
+<section class="seminar-selector" aria-labelledby="selector-title">
+<div class="selector-heading"><h2 id="selector-title">テーマと進め方を選ぶ</h2><p>まずは近いものをひとつずつ。</p></div>
+<div class="selector-block"><h3>01 / 講演テーマ</h3><div id="topic-selector" class="selector-grid"></div></div>
+<div class="selector-block"><h3>02 / 提供プロセス</h3><div id="process-selector" class="selector-grid"></div></div>
+<div class="selection-result"><div><small id="result-label">SELECT A THEME</small><h3 id="result-title">テーマを選ぶと、組み合わせが表示されます。</h3><p id="result-description">御社の関心に近いテーマと進め方を選んでください。組み合わせをもとに、出張セミナーの内容を具体化します。</p></div><a class="result-cta" href="https://lne.st/contact/" target="_blank" rel="noreferrer">このテーマで相談する ↗</a></div>
+</section>
+<section class="matrix-section" aria-labelledby="matrix-title">
+<div class="seminar-label">5 × 5 MATRIX</div><h2 id="matrix-title">講演テーマ × 提供プロセス</h2><p>選んだ組み合わせを起点に、御社の課題や参加者に合わせて内容を調整します。下の一覧から全体像も確認できます。</p>
+<div id="matrix" class="matrix"></div>
+</section>
+<footer class="seminar-footer"><span>LEAVE A NEST / リバネス</span><a href="https://lne.st/contact/" target="_blank" rel="noreferrer">出張セミナーについて問い合わせる ↗</a></footer>
+</main>
+<script>
+const topics=[
+ ['T1','新規事業・イノベーション','自社の強みをもとに、新しい事業の種を探す'],
+ ['T2','起業・スタートアップ','技術やアイデアを、最初の顧客と事業の形に近づける'],
+ ['T3','研究成果の社会実装・産学連携','研究者と企業が、成果を現場で使う道筋をつくる'],
+ ['T4','経営・組織・人材','挑戦が生まれ続ける組織の条件を考える'],
+ ['T8','海外展開・国際共創','海外の知識や人材を取り込み、事業の可能性を広げる']
+];
+const processes=[
+ ['PR1','調査・戦略設計','現場と市場を調べ、何から始めるかを整理する'],
+ ['PR2','強み・アセット可視化','技術、設備、人材、顧客など、自社の資源を見つめ直す'],
+ ['PR3','技術・課題・市場探索','必要な技術や組む相手、届けたい市場を探す'],
+ ['PR4','事業計画・社会実装','小さく試す計画をつくり、現場で使うところまで考える'],
+ ['PR5','組織変革・人材育成','取り組みを担う人と、続けられる仕組みを整える']
+];
+const topicsEl=document.getElementById('topic-selector'), processesEl=document.getElementById('process-selector'), matrixEl=document.getElementById('matrix');
+let selectedTopic=0, selectedProcess=0;
+const makeCard=(item,type,i)=>{const b=document.createElement('button');b.className='selector-card';b.dataset.index=i;b.innerHTML='<span>'+item[0]+'</span><strong>'+item[1]+'</strong>';b.addEventListener('click',()=>{if(type==='topic')selectedTopic=i;else selectedProcess=i;render()});return b};
+topics.forEach((x,i)=>topicsEl.appendChild(makeCard(x,'topic',i)));
+processes.forEach((x,i)=>processesEl.appendChild(makeCard(x,'process',i)));
+function render(){
+ [...topicsEl.children].forEach((x,i)=>x.classList.toggle('is-selected',i===selectedTopic));
+ [...processesEl.children].forEach((x,i)=>x.classList.toggle('is-selected',i===selectedProcess));
+ const t=topics[selectedTopic],p=processes[selectedProcess];
+ document.getElementById('result-label').textContent=t[0]+' × '+p[0];
+ document.getElementById('result-title').textContent=t[1]+' × '+p[1];
+ document.getElementById('result-description').textContent=t[2]+'。'+p[2]+'。リバネスの研究者・ベンチャー・地域企業のネットワークを活かし、御社に合う講演内容を組み立てます。';
+}
+topics.forEach(t=>processes.forEach(p=>{const c=document.createElement('article');c.className='matrix-cell';c.innerHTML='<small>'+t[0]+' × '+p[0]+'</small><h3>'+t[1]+' × '+p[1]+'</h3><p>'+t[2]+'。'+p[2]+'。</p>';matrixEl.appendChild(c)}));
+render();
+</script>
+</body>
+</html>
