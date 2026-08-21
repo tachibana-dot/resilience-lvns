@@ -38,17 +38,13 @@ body{background:var(--seminar-paper);color:var(--seminar-ink)}
 .matrix-section{padding-top:7rem}
 .matrix-section h2{font-size:clamp(1.8rem,3vw,3rem);margin:0 0 1rem}
 .matrix-section>p{line-height:1.8;max-width:700px;margin-bottom:2rem}
-.matrix{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.matrix-cell{background:#fff;padding:1rem;min-height:9rem}
-.matrix-cell small{color:var(--seminar-red);font-size:.65rem;font-weight:700;letter-spacing:.08em}
-.matrix-cell h3{font-size:.9rem;line-height:1.4;margin:.55rem 0}
-.matrix-cell p{font-size:.75rem;line-height:1.6;margin:0;color:var(--muted)}
+.matrix-shell{overflow-x:auto;-webkit-overflow-scrolling:touch}.matrix{display:grid;grid-template-columns:220px repeat(5,minmax(210px,1fr));min-width:1270px;gap:1px;background:var(--line);border:1px solid var(--line)}.matrix-corner,.matrix-header,.matrix-row-header,.matrix-cell{background:#fff;padding:1.15rem}.matrix-corner{background:var(--seminar-ink);color:#fff;display:flex;align-items:flex-end;font-weight:700;line-height:1.45}.matrix-header{background:var(--seminar-mint);min-height:112px}.matrix-header small{display:block;color:var(--seminar-red);font-size:.68rem;font-weight:700;letter-spacing:.12em;margin-bottom:.45rem}.matrix-header strong{font-size:.95rem;line-height:1.45}.matrix-row-header{min-height:250px}.matrix-row-header small{display:block;color:var(--seminar-red);font-size:.68rem;font-weight:700;letter-spacing:.12em;margin-bottom:.55rem}.matrix-row-header strong{font-size:1rem;line-height:1.5}.matrix-cell{min-height:250px}.matrix-cell h3{font-size:.95rem;line-height:1.5;margin:0 0 .8rem}.matrix-cell p{font-size:.78rem;line-height:1.7;margin:0;color:var(--muted)}.matrix-cell p strong{display:block;color:var(--seminar-ink);font-size:.68rem;letter-spacing:.1em;margin-bottom:.25rem}
 .seminar-footer{margin-top:6rem;padding-top:2rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem}
 .seminar-footer a{color:inherit}
 @media(max-width:760px){
  .seminar-page{padding:0 1.2rem 5rem}.seminar-header{padding:1.4rem 0 4rem}.seminar-hero{padding-bottom:3rem}
  .selector-grid{grid-template-columns:repeat(2,1fr)}.selector-card{min-height:6.3rem}.selection-result{grid-template-columns:1fr}
- .matrix{display:block;background:transparent;border:0}.matrix-cell{margin-bottom:.7rem;min-height:0;border:1px solid var(--line)}
+ .matrix-shell{overflow-x:auto}.matrix{display:grid}.matrix-cell{margin-bottom:0;min-height:250px;border:0}
  .seminar-footer{display:block}.seminar-footer a{display:block;margin-top:1rem}
 }
 
@@ -72,26 +68,25 @@ body{background:var(--seminar-paper);color:var(--seminar-ink)}
 <div class="selection-result"><div><small id="result-label">選択中の組み合わせ</small><h3 id="result-title">テーマを選ぶと、組み合わせが表示されます。</h3><p id="result-description">御社の関心に近いテーマと進め方を選んでください。組み合わせをもとに、出張セミナーの内容を具体化します。</p><div id="result-links" class="result-links" aria-live="polite"></div></div><a class="result-cta" href="https://lne.st/contact/" target="_blank" rel="noreferrer">このテーマで相談する ↗</a></div>
 </section>
 <section class="matrix-section" aria-labelledby="matrix-title">
-<div class="seminar-label">5 × 5 MATRIX</div><h2 id="matrix-title">講演テーマ × 提供プロセス</h2><p>選んだ組み合わせを起点に、御社の課題や参加者に合わせて内容を調整します。下の一覧から全体像も確認できます。</p>
-<div id="matrix" class="matrix"></div>
+<div class="seminar-label">5 × 5 MATRIX</div><h2 id="matrix-title">講演テーマ × 提供プロセス</h2><p>行は講演テーマ、列は提供プロセスです。交差するマスに、その組み合わせで扱う講演内容と、御社にとってのメリットを整理しています。</p>
+<div class="matrix-shell" tabindex="0" aria-label="講演テーマと提供プロセスの5×5マトリクス"><div id="matrix" class="matrix"></div></div>
 </section>
 <footer class="seminar-footer"><span>LEAVE A NEST / リバネス</span><a href="https://lne.st/contact/" target="_blank" rel="noreferrer">出張セミナーについて問い合わせる ↗</a></footer>
 </main>
 <script>
 const topics=[
- ['T1','新規事業・イノベーション','自社の強みをもとに、新しい事業の種を探す'],
- ['T2','起業・スタートアップ','技術やアイデアを、最初の顧客と事業の形に近づける'],
- ['T3','研究成果の社会実装・産学連携','研究者と企業が、成果を現場で使う道筋をつくる'],
- ['T4','経営・組織・人材','挑戦が生まれ続ける組織の条件を考える'],
- ['T8','海外展開・国際共創','海外の知識や人材を取り込み、事業の可能性を広げる']
+ ['T1','新規事業・イノベーション',
+  [['商社機能から、自社プロダクト創出へ','市場知識を自社の強みに変え、製品を生む体制へ移行できる'],['世界を変えるビジネスは、1人の熱から生まれる','組織の規模や予算に左右されず、事業の起点をつくれる'],['技術・課題・市場から新規事業を考える','自社技術を、誰のどんな課題に届けるか見極められる'],['知識製造業に向けた新規事業のつくり方','自社資産とベンチャーの技術を組み合わせ、新しい市場を狙える'],['組織変革・人材育成から始める新規事業','挑戦する人が育ち、新事業が生まれる仕組みをつくれる']]],
+ ['T2','起業・スタートアップ',
+  [['研究を会社にする前に、最初に確かめること','顧客仮説と事業の出発点を見極められる'],['自分の“好き”がビジネスになる','関心や情熱を、顧客に届く価値へ翻訳できる'],['技術・課題・市場を起点に起業を考える','技術を必要とする顧客と市場を見つけられる'],['ディープテックの始め方','研究成果を事業へ進める最初の一歩がわかる'],['地域から起業家を育てる仕組み','補助金で終わらず、発掘から成長まで支えられる']]],
+ ['T3','研究成果の社会実装・産学連携',
+  [['研究成果を社会で使う道筋を描く','研究者・企業・社会の利害を整理し、実装まで進められる'],['企業と研究者の強みを組み合わせる','自社の課題と研究の種を結び、共同研究の形にできる'],['技術・課題・市場から産学連携をつくる','成果を必要とする現場と出会い、使われる道筋を描ける'],['研究と事業のパートナーシップをつくる','研究側と事業側が早い段階で意思決定できる'],['社内研究を担う人材を育てる','社外の知識と社内研究を結ぶキーパーソンを育てられる']]],
+ ['T4','経営・組織・人材',
+  [['経営戦略と研究、どちらを優先するか','短期収益と研究自由の二者択一を越え、判断基準を持てる'],['自社の強みとアセットを見える化する','既存資源の不足を言い訳にせず、仕事を生み出せる'],['技術・課題・市場から組織を考える','挑戦が次々生まれる組織の条件を持ち帰れる'],['事業計画と社会実装を動かす組織','個人の熱意に依存せず、組織で挑戦を進められる'],['企業研究所に変革を起こす6つのこと','変革を掛け声で終わらせず、優先行動を選べる']]],
+ ['T8','海外展開・国際共創',
+  [['Beyond Collaboration: Symbiosis in Knowledge Manufacturing','単発の連携を越え、強みが循環する国際ネットワークを設計できる'],['強みとアセットを海外展開に活かす','日本市場に留まらず、世界の知見・人材・販路を取り込める'],['技術・課題・市場から海外展開を考える','現地課題と自社技術の接点を見極められる'],['海外展開を事業計画に落とし込む','海外展開の次の一手を具体的な行動に変えられる'],['組織変革・人材育成で海外展開を進める','社内外の知識を結び、国際共創を担う人材を育てられる']]]
 ];
-const processes=[
- ['PR1','調査・戦略設計','現場と市場を調べ、何から始めるかを整理する'],
- ['PR2','強み・アセット可視化','技術、設備、人材、顧客など、自社の資源を見つめ直す'],
- ['PR3','技術・課題・市場探索','必要な技術や組む相手、届けたい市場を探す'],
- ['PR4','事業計画・社会実装','小さく試す計画をつくり、現場で使うところまで考える'],
- ['PR5','組織変革・人材育成','取り組みを担う人と、続けられる仕組みを整える']
-];
+const processes=[['PR1','調査・戦略設計','現場と市場を調べ、何から始めるかを整理する'],['PR2','強み・アセット可視化','技術、設備、人材、顧客など、自社の資源を見つめ直す'],['PR3','技術・課題・市場探索','必要な技術や組む相手、届けたい市場を探す'],['PR4','事業計画・社会実装','小さく試す計画をつくり、現場で使うところまで考える'],['PR5','組織変革・人材育成','取り組みを担う人と、続けられる仕組みを整える']];
 const topicsEl=document.getElementById('topic-selector'), processesEl=document.getElementById('process-selector'), matrixEl=document.getElementById('matrix'), resultLinksEl=document.getElementById('result-links');
 let selectedTopic=0, selectedProcess=0;
 const referenceLinks={
@@ -110,22 +105,18 @@ const referenceLinks={
  'T8-PR3':[{label:'Global Bridge Conference 2025',url:'https://lne.st/2025/09/10/gbc2025/'},{label:'研究開発事業部｜国際共同研究',url:'https://lne.st/about/division/rd/'}],
  'T8-PR4':[{label:'海外展開の次の一手｜Global Bridge Conference 2025',url:'https://lne.st/2025/10/07/gbc-2/'},{label:'地域開発事業部｜リバネス',url:'https://lne.st/about/division/ld/'}]
 };
-
 const makeCard=(item,type,i)=>{const b=document.createElement('button');b.className='selector-card';b.dataset.index=i;b.innerHTML='<strong>'+item[1]+'</strong>';b.addEventListener('click',()=>{if(type==='topic')selectedTopic=i;else selectedProcess=i;render()});return b};
-topics.forEach((x,i)=>topicsEl.appendChild(makeCard(x,'topic',i)));
-processes.forEach((x,i)=>processesEl.appendChild(makeCard(x,'process',i)));
+topics.forEach((x,i)=>topicsEl.appendChild(makeCard(x,'topic',i))); processes.forEach((x,i)=>processesEl.appendChild(makeCard(x,'process',i)));
 function render(){
- [...topicsEl.children].forEach((x,i)=>x.classList.toggle('is-selected',i===selectedTopic));
- [...processesEl.children].forEach((x,i)=>x.classList.toggle('is-selected',i===selectedProcess));
- const t=topics[selectedTopic],p=processes[selectedProcess];
- document.getElementById('result-label').textContent='この組み合わせでできること';
- document.getElementById('result-title').textContent=t[1]+' × '+p[1];
- document.getElementById('result-description').textContent=t[2]+'。'+p[2]+'。リバネスの研究者・ベンチャー・地域企業のネットワークを活かし、御社に合う講演内容を組み立てます。';
- const refs=referenceLinks[t[0]+'-'+p[0]]||[];
- resultLinksEl.innerHTML=refs.length?'<strong>参考リンク</strong>'+refs.map(r=>'<a href="'+r.url+'" target="_blank" rel="noreferrer">'+r.label+' ↗</a>').join(''):'';
+ [...topicsEl.children].forEach((x,i)=>x.classList.toggle('is-selected',i===selectedTopic)); [...processesEl.children].forEach((x,i)=>x.classList.toggle('is-selected',i===selectedProcess));
+ const t=topics[selectedTopic],p=processes[selectedProcess],d=t[2][selectedProcess];
+ document.getElementById('result-label').textContent='この組み合わせでできること'; document.getElementById('result-title').textContent=d[0]; document.getElementById('result-description').textContent=d[1]+'。'+t[1]+'と'+p[1]+'を組み合わせ、御社に合う講演内容を組み立てます。';
+ const refs=referenceLinks[t[0]+'-'+p[0]]||[]; resultLinksEl.innerHTML=refs.length?'<strong>参考リンク</strong>'+refs.map(r=>'<a href="'+r.url+'" target="_blank" rel="noreferrer">'+r.label+' ↗</a>').join(''):'';
 }
-topics.forEach(t=>processes.forEach(p=>{const c=document.createElement('article');c.className='matrix-cell';c.innerHTML='<h3>'+t[1]+' × '+p[1]+'</h3><p>'+t[2]+'。'+p[2]+'。</p>';matrixEl.appendChild(c)}));
+matrixEl.innerHTML='<div class="matrix-corner">講演テーマ<br />×<br />提供プロセス</div>'+processes.map(p=>'<div class="matrix-header"><small>'+p[0]+'</small><strong>'+p[1]+'</strong></div>').join('');
+topics.forEach(t=>{matrixEl.innerHTML+='<div class="matrix-row-header"><small>'+t[0]+'</small><strong>'+t[1]+'</strong></div>'+t[2].map(d=>'<article class="matrix-cell"><h3>'+d[0]+'</h3><p><strong>自社のメリット</strong>'+d[1]+'</p></article>').join('')});
 render();
+
 </script>
 </body>
 </html>
